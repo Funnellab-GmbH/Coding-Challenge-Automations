@@ -1,5 +1,11 @@
 import type { Request } from "express";
+import { ordersMap } from "./data";
 
 export const getOrderStatus = (req: Request): string => {
-  return "processed";
+    const { order_id } = req.params;
+    const order = ordersMap.get(order_id);
+    if (!order) {
+        throw new Error("Order not found");
+    }
+    return order.status ?? 'pending';
 }
