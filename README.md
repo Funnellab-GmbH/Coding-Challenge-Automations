@@ -3,12 +3,12 @@
 > Choose **one** setup: **Local (Docker Desktop)** or **GitHub Codespaces**.
 
 ## 🚀 Goals
-- Build an **n8n workflow** that receives a webhook, transforms data, and **POSTs to the Express endpoint** with HMAC.
+- Build an **n8n workflow** that receives a webhook, transforms data and **POSTs to the Express endpoint** with HMAC.
 - Implement or extend the **Express API** (already scaffolded) and prove **idempotency** + a **status** check.
 
 ---
 
-## 🧰 Prereqs
+## 🧰 Prerequisits
 - **Option A: Local**
   - Docker Desktop (Windows requires WSL2)
 - **Option B: Cloud**
@@ -21,7 +21,6 @@
 ### A) Run locally
 ```bash
 cp .env.example .env
-# put the HMAC_SECRET we sent you privately
 docker compose up --build
 ```
 
@@ -34,7 +33,6 @@ docker compose up --build
 1. In the VS Code terminal:
 ```bash
 cp .env.example .env
-# paste the HMAC_SECRET we sent you
 docker compose up --build
 ```
 If ports don’t auto-forward, forward 3000 and 5678.
