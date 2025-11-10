@@ -1,0 +1,18 @@
+# Node
+node_modules
+npm-debug.log*
+pnpm-lock.yaml
+yarn.lock
+
+# Env
+.env
+
+# VS Code
+.vscode
+
+# Docker
+**/.docker
+**/.cache
+
+# n8n local data volume (if ever mounted)
+n8n_data/
