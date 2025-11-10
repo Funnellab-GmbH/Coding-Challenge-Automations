@@ -2,12 +2,6 @@
 
 Choose **one** setup: **Local (Docker Desktop)** or **GitHub Codespaces**.
 
-## 🚀 Goals
-- Build an **n8n workflow** that receives a webhook, transforms data and **POSTs to the Express endpoint** with HMAC.
-- Implement or extend the **Express API** (already scaffolded) and prove **idempotency** + a **status** check.
-
----
-
 ## 🧰 Prerequisits
 - **Option A: Local**
   - Docker Desktop (Windows requires WSL2)
