@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import type { Request } from "express";
 
-export function computeHmac(secret: string, rawBody: Buffer) {
+export function computeHmac(secret: string, rawBody: string) {
     return crypto.createHmac("sha256", secret).update(rawBody).digest("hex");
 }
 
@@ -12,10 +12,7 @@ export function verifyHmac(req: Request) {
     const signature = req.header("x-signature");
     if (!signature) return false;
 
-    const { rawBody } = req;
-    if (!rawBody) return false;
-
-    const expected = computeHmac(secret, rawBody);
+    const expected = computeHmac(secret, JSON.stringify(req.body));
 
     // constant-time compare
     const a = Buffer.from(expected, "utf8");
