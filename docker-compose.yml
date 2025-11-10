@@ -14,6 +14,11 @@ services:
 
   api:
     build: ./api
+    command: npm run dev
+    volumes:
+      - ./api/src:/app/src           # mount live source
+      - ./api/package.json:/app/package.json
+      - ./api/tsconfig.json:/app/tsconfig.json
     environment:
       - PORT=${API_PORT:-3000}
       - HMAC_SECRET=${HMAC_SECRET}

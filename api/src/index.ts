@@ -1,6 +1,6 @@
-import express, { Request, Response, NextFunction } from "express";
-import morgan from "morgan";
-import { verifyHmac } from "./hmac.js";
+import express from "express";
+// import morgan from "morgan";
+// import { verifyHmac } from "./hmac.js";
 
 const app = express();
 
