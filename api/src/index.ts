@@ -3,7 +3,18 @@ import morgan from "morgan";
 import { getOrderStatus } from "./getOrderStatus.ts";
 import { createOrder } from "./createOrder.ts";
 
+// Extend the Request interface to include rawBody
+declare module "express-serve-static-core" {
+    interface Request {
+        rawBody?: Buffer;
+    }
+}
+
 export const app = express();
+
+app.use(express.json({
+  verify: (req: any, _res, buf) => { req.rawBody = Buffer.from(buf); }
+}));
 
 // Logging
 app.use(morgan("dev"));
