@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    ports:
+      - "${N8N_PORT:-5678}:5678"
+    environment:
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=${TZ:-Europe/Berlin}
+    volumes:
+      - n8n_data:/home/node/.n8n
+
+  api:
+    build: ./api
+    environment:
+      - PORT=${API_PORT:-3000}
+      - HMAC_SECRET=${HMAC_SECRET}
+      - TZ=${TZ:-Europe/Berlin}
+    ports:
+      - "${API_PORT:-3000}:3000"
+    depends_on:
+      - n8n
+
+volumes:
+  n8n_data:
