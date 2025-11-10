@@ -1,6 +1,6 @@
 # n8n + Express Coding Challenge
 
-> Choose **one** setup: **Local (Docker Desktop)** or **GitHub Codespaces**.
+Choose **one** setup: **Local (Docker Desktop)** or **GitHub Codespaces**.
 
 ## 🚀 Goals
 - Build an **n8n workflow** that receives a webhook, transforms data and **POSTs to the Express endpoint** with HMAC.
