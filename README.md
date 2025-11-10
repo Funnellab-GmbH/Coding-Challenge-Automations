@@ -23,3 +23,18 @@
 cp .env.example .env
 # put the HMAC_SECRET we sent you privately
 docker compose up --build
+```
+
+- API: http://localhost:3000/health
+- n8n: http://localhost:5678 (create owner account on first run)
+
+### B) Run in GitHub Codespaces
+1. Click Code → Create codespace on main.
+1. Wait for the container to build.
+1. In the VS Code terminal:
+```bash
+cp .env.example .env
+# paste the HMAC_SECRET we sent you
+docker compose up --build
+```
+If ports don’t auto-forward, forward 3000 and 5678.
