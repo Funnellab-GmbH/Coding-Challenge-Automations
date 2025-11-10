@@ -1,5 +1,5 @@
 import type { Request } from "express";
-import { ordersMap } from "./data";
+import { ordersMap } from "./data.ts";
 
 export const getOrderStatus = (req: Request): string => {
     const { order_id } = req.params;
